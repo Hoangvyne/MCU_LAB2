@@ -161,7 +161,7 @@ void display7SEG(int num)
 
 const int MAX_LED = 4;
 int index_led = 0;
-int led_buffer [4] = {0 , 0, 0, 0};
+int led_buffer [4] = {1 , 2, 3, 4};
 int hour;
 int minute;
 int second;

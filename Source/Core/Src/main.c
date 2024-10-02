@@ -193,7 +193,7 @@ int main(void)
   MX_TIM2_Init();
   MX_GPIO_Init();
   /* USER CODE BEGIN 2 */
-
+  HAL_TIM_Base_Start_IT (& htim2 ) ;
   /* USER CODE END 2 */
 
   /* Infinite loop */
@@ -335,16 +335,13 @@ int status_7seg = 0;
 
 HAL_TIM_PeriodElapsedCallback(TIM_HandleTypeDef* htim)
 {
-
 	if(counter_led_red > 0) counter_led_red --;
 	if(counter_led_red <= 0)
 	{
 		counter_led_red = 100;
-		HAL_GPIO_TogglePin(LED_RED_GPIO_Port, LED_RED_Pin);
-		HAL_GPIO_TogglePin(DOT_GPIO_Port, DOT_Pin);
+		HAL_GPIO_TogglePin(LED_RED_GPIO_Port, LED_RED_Pin);//toggle LED-RED
+		HAL_GPIO_TogglePin(DOT_GPIO_Port, DOT_Pin);//toggle DOT-LED
 	}
-
-
 	if(counter_7seg > 0) counter_7seg --;
 	if(counter_7seg <= 0)
 	{

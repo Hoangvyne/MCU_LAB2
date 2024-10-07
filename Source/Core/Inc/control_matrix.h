@@ -15,6 +15,7 @@ extern  uint8_t matrix_buffer [];
 
 void updateLedMatrix(int index);
 void displayLedMatrix(int row, int col);
+void updateMatrix_buffer();
 
 
 #endif /* INC_CONTROL_MATRIX_H_ */

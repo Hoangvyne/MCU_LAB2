@@ -103,39 +103,45 @@ int main(void)
   setTimer2(1000);
   setTimer3(1000);
   setTimer4(1000);
+  setTimer5(1000);
   while (1)
   {
     /* USER CODE END WHILE */
     /* USER CODE BEGIN 3 */
-	if(timer3_flag == 1)// control LED-RED and DOT-LED
-	{
-		HAL_GPIO_TogglePin(LED_RED_GPIO_Port, LED_RED_Pin);
-		HAL_GPIO_TogglePin(DOT_GPIO_Port, DOT_Pin);
-		setTimer3(1000);
-	}
+	  if(timer3_flag == 1)
+	  	{
+	  		HAL_GPIO_TogglePin(LED_RED_GPIO_Port, LED_RED_Pin);
+	  		HAL_GPIO_TogglePin(DOT_GPIO_Port, DOT_Pin);
+	  		setTimer3(500);
+	  	}
 
-	if(timer1_flag == 1)// run time as a clock
-	{
-		clock();
-		updateClockBuffer();
-		setTimer1(1000);
-	}
+	  	if(timer1_flag == 1)
+	  	{
+	  		clock();
+	  		updateClockBuffer();
+	  		setTimer1(1000);
+	  	}
 
-	if(timer2_flag == 1)// control 4 led 7-SEG
-	{
-		update7SEG(index_led++);
-		if(index_led == MAX_LED) index_led = 0;
-		setTimer2(250);
-	}
+	  	if(timer2_flag == 1)
+	  	{
+	  		update7SEG(index_led++);
+	  		if(index_led == MAX_LED) index_led = 0;
+	  		setTimer2(250);
+	  	}
 
-	if(timer4_flag == 1)// control led matrix
-	{
-		updateLedMatrix(index_led_matrix++);
-		if(index_led_matrix == MAX_LED_MATRIX) index_led_matrix = 0;
-		setTimer4(100);
-	}
+	  	if(timer4_flag == 1)
+	  	{
+	  		updateLedMatrix(index_led_matrix++);
+	  		if(index_led_matrix == MAX_LED_MATRIX) index_led_matrix = 0;
+	  		setTimer4(100);
+	  	}
 
-  }
+	  	if(timer5_flag == 1)
+	  	{
+	  		updateMatrix_buffer();
+	  		setTimer5(1000);
+	  	}
+ }
   /* USER CODE END 3 */
 }
 

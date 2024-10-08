@@ -114,14 +114,14 @@ int main(void)
 	 		  setTimer3(1000);
 	 	  }
 
-	 	  if(timer1_flag == 1)
+	  if(timer1_flag == 1)
 	 	  {
 	 		  clock();
 	 		  updateClockBuffer();
 	 		  setTimer1(1000);
 	 	  }
 
-	 	  if(timer2_flag == 1)
+	  if(timer2_flag == 1)
 	 	  {
 	 		  update7SEG(index_led++);
 	 		  if(index_led == MAX_LED) index_led = 0;
